@@ -27,13 +27,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh "scp -i /c/Users/nagamurallidhar/Desktop/keypairs/jenkinsserver.pem **/target/*.war ec2-user@13.233.85.78:/opt/tomcat-8.5.45/webapps"
+                        sh "scp -i /c/Users/nagamurallidhar/Desktop/keypairs/jenkinsserver.pem -r **/target/*.war ec2-user@ec2-13-233-85-78.ap-south-1.compute.amazonaws.com:/opt/tomcat-8.5.45/webapps"
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        sh ""scp -i /c/Users/nagamurallidhar/Desktop/keypairs/jenkinsserver.pem **/target/*.war ec2-user@13.233.114.195:/opt/tomcat-8.5.45/webapps"
+                        sh ""scp -i /c/Users/nagamurallidhar/Desktop/keypairs/jenkinsserver.pem -r **/target/*.war ec2-user@ec2-13-233-114-195.ap-south-1.compute.amazonaws.com:/opt/tomcat-8.5.45/webapps"
                     }
                 }
             }
